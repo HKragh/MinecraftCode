@@ -25,6 +25,7 @@ function FindFuelStation ()
 
 end
 
+
 function moveBack(amount)
   for i = 1, amount do
     while not turtle.back() do
