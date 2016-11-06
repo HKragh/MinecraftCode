@@ -4,6 +4,20 @@ local harvestPause = 30
 local iAxisMod = 0
 local jAxisMod = 0
 
+function Refuel ()
+	turtle.select(16)
+
+	if not turtle.refuel(math.round(((axisCount*axisCount)*2*2+100)/80)) then
+		print("Find fuel station")
+		FindFuelStation()
+	end
+	print("Succesfully fueled!")
+end
+
+function FindFuelStation ()
+
+end
+
 function moveBack(amount)
   for i = 1, amount do
     while not turtle.back() do
@@ -125,17 +139,5 @@ while true do
 	iAxisMod = 0 
 end
 
-function Refuel ()
-	turtle.select(16)
 
-	if not turtle.refuel(math.round(((axisCount*axisCount)*2*2+100)/80)) then
-		print("Find fuel station")
-		FindFuelStation()
-	end
-	print("Succesfully fueled!")
-end
-
-function FindFuelStation ()
-
-end
 
