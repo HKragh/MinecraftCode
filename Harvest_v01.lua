@@ -43,7 +43,7 @@ function harvestMove()
 	  if ((iAxisMod == 0) and (i<axisCount+1)) or (iAxisMod == 1) then
 
 	   for j = 1, axisCount do
-   
+		
 		if (iAxisMod == 1) and (j == 1) then
 			turtle.suckDown()
 		end
@@ -109,11 +109,29 @@ while true do
 	iAxisMod = 1 
 	harvestMove()
 
-  for i = 1, 16 do
+  for i = 1, 15 do
     turtle.select(i)
     turtle.dropDown()  
   end
 
-	sleep(harvestPause)
+	if turtle.getFuelLevel() < (axisCount*axisCount)*2*2+100 then 
+		Refuel()
+	else
+		sleep(harvestPause)
+	end
 	iAxisMod = 0 
 end
+
+function Refuel ()
+	turtle.select(16)
+
+	if not turtle.refuel(((axisCount*axisCount)*2*2+100)/80) then
+		FindFuelStation()
+	end
+
+end
+
+function FindFuelStation ()
+
+end
+
