@@ -106,7 +106,7 @@ end
 
 while true do
 	if turtle.getFuelLevel() < (axisCount*axisCount)*2*2+100 then 
-			Refuel()
+		Refuel()
 	end
 	harvestMove()
 	iAxisMod = 1 
@@ -128,10 +128,11 @@ end
 function Refuel ()
 	turtle.select(16)
 
-	if not turtle.refuel(((axisCount*axisCount)*2*2+100)/80) then
+	if not turtle.refuel(math.round(((axisCount*axisCount)*2*2+100)/80)) then
+		print("Find fuel station")
 		FindFuelStation()
 	end
-
+	print("Succesfully fueled!")
 end
 
 function FindFuelStation ()
